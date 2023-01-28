@@ -49,10 +49,6 @@ Route::group(['middleware' => 'auth'], function () {
 		return view('tables');
 	})->name('tables');
 
-    Route::get('virtual-reality', function () {
-		return view('virtual-reality');
-	})->name('virtual-reality');
-
     Route::get('static-sign-in', function () {
 		return view('static-sign-in');
 	})->name('sign-in');
