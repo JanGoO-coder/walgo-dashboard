@@ -1,8 +1,10 @@
 <?php
 
+use App\Enums\UserStatusEnum;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Enums\UserTypeEnum;
 
 class CreateUsersTable extends Migration
 {
@@ -18,10 +20,10 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->bigInteger('phone')->nullable();
-            $table->string('location')->nullable();
-            $table->string('about_me')->nullable();
+            $table->enum('status', UserStatusEnum::getValues())->default(UserStatusEnum::PENDING());
+            $table->enum('type', UserTypeEnum::getValues())->default(UserTypeEnum::TOURIST);
             $table->rememberToken();
+            $table->tinyInteger("archive")->default(0);
             $table->timestamps();
         });
     }
