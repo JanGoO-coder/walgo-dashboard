@@ -22,6 +22,6 @@ class PersonalDetails extends Model
     ];
 
     public function location() {
-        return $this->hasOne("location");
+        return $this->hasOne(Location::class, "id", "location_id");
     }
 }

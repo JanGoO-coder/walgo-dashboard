@@ -3,8 +3,15 @@
   <div class="sidenav-header">
     <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
     <a class="align-items-center d-flex m-0 navbar-brand text-wrap" href="{{ route('dashboard') }}">
-        <img src="../assets/img/logo-ct.png" class="navbar-brand-img h-100" alt="...">
-        <span class="ms-3 font-weight-bold">Soft UI Dashboard Laravel</span>
+      <svg class="tw-h-10" viewBox="0 0 141 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M8.534 32L0.748 8.2H6.46L13.226 29.28H10.37L17.442 8.2H22.542L29.342 29.28H26.588L33.524 8.2H38.794L31.008 32H25.092L19.074 13.504H20.638L14.45 32H8.534ZM38.029 32L48.637 8.2H54.077L64.719 32H58.939L50.235 10.988H52.411L43.673 32H38.029ZM43.333 26.9L44.795 22.718H57.035L58.531 26.9H43.333ZM67.2732 32V8.2H72.7812V27.512H84.7152V32H67.2732Z"
+          fill="black" />
+        <path
+          d="M98.498 32.408C96.0953 32.408 94.01 31.9773 92.242 31.116C90.4967 30.232 89.1367 29.0193 88.162 27.478C87.21 25.914 86.734 24.112 86.734 22.072C86.734 20.0547 87.0853 18.1733 87.788 16.428C88.5133 14.6827 89.5333 13.1753 90.848 11.906C92.1627 10.614 93.738 9.60533 95.574 8.88C97.41 8.15467 99.45 7.792 101.694 7.792C103.961 7.792 105.921 8.15467 107.576 8.88C109.253 9.58267 110.602 10.6027 111.622 11.94L107.678 15.136C106.885 14.184 105.978 13.504 104.958 13.096C103.961 12.688 102.793 12.484 101.456 12.484C100.051 12.484 98.7813 12.722 97.648 13.198C96.5373 13.6513 95.5853 14.2973 94.792 15.136C93.9987 15.9747 93.3867 16.9607 92.956 18.094C92.5253 19.2047 92.31 20.4173 92.31 21.732C92.31 22.9333 92.5707 23.9873 93.092 24.894C93.6133 25.778 94.384 26.4693 95.404 26.968C96.4467 27.4667 97.716 27.716 99.212 27.716C100.345 27.716 101.433 27.5233 102.476 27.138C103.519 26.7527 104.527 26.152 105.502 25.336L107.61 29.518C106.409 30.4473 105.015 31.1613 103.428 31.66C101.864 32.1587 100.221 32.408 98.498 32.408ZM102.782 28.668L104.55 19.726H109.582L107.61 29.518L102.782 28.668ZM124.643 32.408C122.241 32.408 120.167 31.9773 118.421 31.116C116.699 30.232 115.373 29.0193 114.443 27.478C113.514 25.914 113.049 24.112 113.049 22.072C113.049 20.032 113.401 18.1507 114.103 16.428C114.806 14.6827 115.803 13.1753 117.095 11.906C118.41 10.614 119.963 9.60533 121.753 8.88C123.567 8.15467 125.573 7.792 127.771 7.792C130.174 7.792 132.237 8.234 133.959 9.118C135.705 9.97933 137.042 11.192 137.971 12.756C138.901 14.2973 139.365 16.088 139.365 18.128C139.365 20.168 139.014 22.0607 138.311 23.806C137.609 25.5287 136.6 27.036 135.285 28.328C133.993 29.5973 132.441 30.5947 130.627 31.32C128.837 32.0453 126.842 32.408 124.643 32.408ZM125.119 27.716C126.457 27.716 127.658 27.478 128.723 27.002C129.811 26.5033 130.729 25.8233 131.477 24.962C132.225 24.1007 132.792 23.1147 133.177 22.004C133.585 20.8707 133.789 19.6807 133.789 18.434C133.789 17.2553 133.54 16.224 133.041 15.34C132.543 14.4333 131.806 13.7307 130.831 13.232C129.879 12.7333 128.701 12.484 127.295 12.484C125.958 12.484 124.757 12.7333 123.691 13.232C122.626 13.708 121.708 14.3767 120.937 15.238C120.189 16.0993 119.611 17.0967 119.203 18.23C118.818 19.3407 118.625 20.5193 118.625 21.766C118.625 22.9447 118.875 23.9873 119.373 24.894C119.895 25.778 120.631 26.4693 121.583 26.968C122.558 27.4667 123.737 27.716 125.119 27.716Z"
+          fill="#007AFF" />
+      </svg>
+        {{-- <span class="ms-3 font-weight-bold">Soft UI Dashboard Laravel</span> --}}
     </a>
   </div>
   <hr class="horizontal dark mt-0">
@@ -55,27 +62,27 @@
         </a>
       </li> -->
       <li class="nav-item pb-2">
-        <a class="nav-link {{ (Request::is('user-management') ? 'active' : '') }}" href="{{ url('user-management') }}">
+        <a class="nav-link {{ (Request::is('user-management/requests') ? 'active' : '') }}" href="{{ route('user-requests') }}">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                 <i style="font-size: 1rem;" class="fas fa-lg fa-list-ul ps-2 pe-2 text-center text-dark {{ (Request::is('user-management') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
             </div>
-            <span class="nav-link-text ms-1">Admins</span>
+            <span class="nav-link-text ms-1">User Requests</span>
         </a>
       </li>
       <li class="nav-item pb-2">
-        <a class="nav-link {{ (Request::is('user-management') ? 'active' : '') }}" href="{{ url('user-management') }}">
+        <a class="nav-link {{ (Request::is('user-management/verified') ? 'active' : '') }}" href="{{ route('verified-users') }}">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                 <i style="font-size: 1rem;" class="fas fa-lg fa-list-ul ps-2 pe-2 text-center text-dark {{ (Request::is('user-management') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
             </div>
-            <span class="nav-link-text ms-1">Tour Guides</span>
+            <span class="nav-link-text ms-1">Verified Users</span>
         </a>
       </li>
       <li class="nav-item pb-2">
-        <a class="nav-link {{ (Request::is('user-management') ? 'active' : '') }}" href="{{ url('user-management') }}">
+        <a class="nav-link {{ (Request::is('user-management/rejected') ? 'active' : '') }}" href="{{ route('rejected-users') }}">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                 <i style="font-size: 1rem;" class="fas fa-lg fa-list-ul ps-2 pe-2 text-center text-dark {{ (Request::is('user-management') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
             </div>
-            <span class="nav-link-text ms-1">Tourists</span>
+            <span class="nav-link-text ms-1">Rejected Users</span>
         </a>
       </li>
       <li class="nav-item mt-2">

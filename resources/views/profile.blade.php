@@ -17,10 +17,10 @@
           <div class="col-auto my-auto">
             <div class="h-100">
               <h5 class="mb-1">
-                Alec Thompson
+                {{ $user->name }}
               </h5>
               <p class="mb-0 font-weight-bold text-sm">
-                CEO / Co-Founder
+                {{ $user->type }}
               </p>
             </div>
           </div>
@@ -150,7 +150,7 @@
             <div class="card-header pb-0 p-3">
               <div class="row">
                 <div class="col-md-8 d-flex align-items-center">
-                  <h6 class="mb-0">Profile Information</h6>
+                  <h6 class="mb-0">Personal Details</h6>
                 </div>
                 <div class="col-md-4 text-end">
                   <a href="javascript:;">
@@ -161,14 +161,16 @@
             </div>
             <div class="card-body p-3">
               <p class="text-sm">
-                Hi, I’m Alec Thompson, Decisions: If you can’t decide, the answer is no. If two equally difficult paths, choose the one more painful in the short term (pain avoidance is creating an illusion of equality).
+                {{ $user->personalDetails->about }}
               </p>
               <hr class="horizontal gray-light my-4">
               <ul class="list-group">
-                <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Full Name:</strong> &nbsp; Alec M. Thompson</li>
-                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Mobile:</strong> &nbsp; (44) 123 1234 123</li>
-                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Email:</strong> &nbsp; alecthompson@mail.com</li>
-                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Location:</strong> &nbsp; USA</li>
+                <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Full Name:</strong> &nbsp; {{ $user->name }}</li>
+                <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Father Name:</strong> &nbsp; {{ $user->personalDetails->father_name }}</li>
+                <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Mother Name:</strong> &nbsp; {{ $user->personalDetails->mother_name }}</li>
+                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Mobile:</strong> &nbsp; {{ $user->personalDetails->phone }}</li>
+                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Email:</strong> &nbsp; {{ $user->email }}</li>
+                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Location:</strong> &nbsp; {{ $user->personalDetails->location->city }}</li>
                 <li class="list-group-item border-0 ps-0 pb-0">
                   <strong class="text-dark text-sm">Social:</strong> &nbsp;
                   <a class="btn btn-facebook btn-simple mb-0 ps-1 pe-2 py-0" href="javascript:;">
@@ -188,59 +190,30 @@
         <div class="col-12 col-xl-4">
           <div class="card h-100">
             <div class="card-header pb-0 p-3">
-              <h6 class="mb-0">Conversations</h6>
+              <div class="row">
+                <div class="col-md-8 d-flex align-items-center">
+                  <h6 class="mb-0">Identity Details</h6>
+                </div>
+                <div class="col-md-4 text-end">
+                  <a href="javascript:;">
+                    <i class="fas fa-user-edit text-secondary text-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Profile"></i>
+                  </a>
+                </div>
+              </div>
             </div>
             <div class="card-body p-3">
+              <p class="text-sm">
+                <img src="../assets/img/home-decor-1.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
+              </p>
+              <hr class="horizontal gray-light my-4">
               <ul class="list-group">
-                <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
-                  <div class="avatar me-3">
-                    <img src="../assets/img/kal-visuals-square.jpg" alt="kal" class="border-radius-lg shadow">
-                  </div>
-                  <div class="d-flex align-items-start flex-column justify-content-center">
-                    <h6 class="mb-0 text-sm">Sophie B.</h6>
-                    <p class="mb-0 text-xs">Hi! I need more information..</p>
-                  </div>
-                  <a class="btn btn-link pe-3 ps-0 mb-0 ms-auto" href="javascript:;">Reply</a>
-                </li>
-                <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
-                  <div class="avatar me-3">
-                    <img src="../assets/img/marie.jpg" alt="kal" class="border-radius-lg shadow">
-                  </div>
-                  <div class="d-flex align-items-start flex-column justify-content-center">
-                    <h6 class="mb-0 text-sm">Anne Marie</h6>
-                    <p class="mb-0 text-xs">Awesome work, can you..</p>
-                  </div>
-                  <a class="btn btn-link pe-3 ps-0 mb-0 ms-auto" href="javascript:;">Reply</a>
-                </li>
-                <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
-                  <div class="avatar me-3">
-                    <img src="../assets/img/ivana-square.jpg" alt="kal" class="border-radius-lg shadow">
-                  </div>
-                  <div class="d-flex align-items-start flex-column justify-content-center">
-                    <h6 class="mb-0 text-sm">Ivanna</h6>
-                    <p class="mb-0 text-xs">About files I can..</p>
-                  </div>
-                  <a class="btn btn-link pe-3 ps-0 mb-0 ms-auto" href="javascript:;">Reply</a>
-                </li>
-                <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
-                  <div class="avatar me-3">
-                    <img src="../assets/img/team-4.jpg" alt="kal" class="border-radius-lg shadow">
-                  </div>
-                  <div class="d-flex align-items-start flex-column justify-content-center">
-                    <h6 class="mb-0 text-sm">Peterson</h6>
-                    <p class="mb-0 text-xs">Have a great afternoon..</p>
-                  </div>
-                  <a class="btn btn-link pe-3 ps-0 mb-0 ms-auto" href="javascript:;">Reply</a>
-                </li>
-                <li class="list-group-item border-0 d-flex align-items-center px-0">
-                  <div class="avatar me-3">
-                    <img src="../assets/img/team-3.jpg" alt="kal" class="border-radius-lg shadow">
-                  </div>
-                  <div class="d-flex align-items-start flex-column justify-content-center">
-                    <h6 class="mb-0 text-sm">Nick Daniel</h6>
-                    <p class="mb-0 text-xs">Hi! I need more information..</p>
-                  </div>
-                  <a class="btn btn-link pe-3 ps-0 mb-0 ms-auto" href="javascript:;">Reply</a>
+                <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Identity Type:</strong> &nbsp; {{ $user->identityDetails->type }}</li>
+                <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Identity Number:</strong> &nbsp; {{ $user->identityDetails->number }}</li>
+                <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Expiry:</strong> &nbsp; {{ $user->identityDetails->expires_at }}</li>
+                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Image Links:</strong> <br> 
+                  @foreach (json_decode($user->identityDetails->images) as $image)
+                    <a class="btn-link" href="{{ $image }}">{{ $image }}</a> <br>
+                  @endforeach
                 </li>
               </ul>
             </div>

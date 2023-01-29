@@ -6,6 +6,7 @@ use App\Http\Controllers\InfoUserController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ResetController;
 use App\Http\Controllers\SessionsController;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Route;
@@ -33,9 +34,7 @@ Route::group(['middleware' => 'auth'], function () {
 		return view('billing');
 	})->name('billing');
 
-	Route::get('profile', function () {
-		return view('profile');
-	})->name('profile');
+	Route::get('profile/{id}', [UserController::class, "profile"])->name('profile');
 
 	Route::get('rtl', function () {
 		return view('rtl');
@@ -63,6 +62,14 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/login', function () {
 		return view('dashboard');
 	})->name('sign-up');
+
+	Route::prefix("user-management")->group(function () {
+		Route::get("/requests", [UserController::class, "requests"])->name("user-requests");
+		Route::get("/verified", [UserController::class, "verified"])->name("verified-users");
+		Route::get("/rejected", [UserController::class, "rejected"])->name("rejected-users");
+		Route::get("/accept/{id}", [UserController::class, "accept"])->name("accept-user-request");
+		Route::get("/reject/{id}", [UserController::class, "reject"])->name("reject-user-request");
+	});
 });
 
 
