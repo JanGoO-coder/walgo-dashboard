@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Enums\UserStatusEnum;
+use App\Enums\UserTypeEnum;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -74,12 +75,23 @@ class UserController extends Controller
         return response()->json(compact('token'));
     }
 
+    public function yeildUserType($type) {
+        if ($type == 't') {
+            return UserTypeEnum::TOURIST;
+        } else if ($type == 'g') {
+            return UserTypeEnum::TOUR_GUIDE;
+        } else {
+            return UserTypeEnum::TOURIST;
+        }
+    }
+
     public function register(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
+            'type' => 'required'
         ]);
 
         if ($validator->fails()) {
@@ -90,9 +102,11 @@ class UserController extends Controller
             'name' => $request->get('name'),
             'email' => $request->get('email'),
             'password' => Hash::make($request->get('password')),
+            'type' => $this->yeildUserType($request->get("type")),
+            'status' => UserStatusEnum::PENDING
         ]);
 
-        $token = JWTAuth::fromUser($user);
+        $token = JWTAuth::fromUser($user, $user->toArray());
 
         return response()->json(compact('user', 'token'), 201);
     }

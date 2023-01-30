@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -42,7 +43,14 @@ class User extends Authenticatable implements JWTSubject
     }
     
     public function getJWTCustomClaims() {
-        return [];
+        return [
+            "user_id" => $this->id,
+            "name" => $this->name,
+            "email" => $this->email,
+            "type" => $this->type,
+            "status" => $this->status,
+            "session_expires_at" => Carbon::now()->toDateTimeString()
+        ];
     }
 
     public function personalDetails() {
